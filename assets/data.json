@@ -1,0 +1,31 @@
+{
+  "user": {
+    "balance": 46.78,
+    "name": "Jon Ben",
+    "avatar": ""
+  },
+  "carousel_cards": [],
+  "tokens": [
+    {
+      "name": "Tezos",
+      "symbol": "XTZ",
+      "balance": 64,
+      "currentPrice": 255.21,
+      "iconUrl": ""
+    },
+    {
+      "name": "Dogami",
+      "symbol": "Doga",
+      "balance": 764,
+      "currentPrice": 55.21,
+      "iconUrl": ""
+    },
+    {
+      "name": "GIF",
+      "symbol": "Gif",
+      "balance": 0.0164,
+      "currentPrice": 1.21,
+      "iconUrl": ""
+    }
+  ]
+}
