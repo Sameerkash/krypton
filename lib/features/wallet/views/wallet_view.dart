@@ -7,11 +7,11 @@ class WalletView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: const [
         Padding(
           padding: EdgeInsets.all(24),
           child: ProfileCard(),
-        )
+        ),
       ],
     );
   }

@@ -11,6 +11,7 @@ class AppTheme {
     primaryColor: Colors.black,
     backgroundColor: Colors.grey[800],
     scaffoldBackgroundColor: Colors.grey[800],
+    bottomAppBarColor: Colors.grey[800],
     cardColor: Colors.black,
 
     // other colors
@@ -28,17 +29,19 @@ class AppTheme {
       // need to caption style (currently using default caption style)
       headline1: GoogleFonts.openSans(color: Colors.black, fontSize: 30),
       headline2: GoogleFonts.openSans(
-          color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700),
+          color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
       headline3: GoogleFonts.openSans(
-          color: Colors.black, fontSize: 22, fontWeight: FontWeight.w800),
+          color: Colors.white, fontSize: 22, fontWeight: FontWeight.w800),
       headline4: GoogleFonts.openSans(
-          color: Colors.black, fontSize: 30, fontWeight: FontWeight.w500),
+          color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
       headline5: GoogleFonts.openSans(
-          color: Colors.black, fontSize: 28, fontWeight: FontWeight.w700),
+          color: Colors.white, fontSize: 28, fontWeight: FontWeight.w700),
       bodyText1: GoogleFonts.openSans(
-          color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
+          color: Colors.yellow, fontSize: 18, fontWeight: FontWeight.w600),
       bodyText2: GoogleFonts.openSans(
-          color: Colors.black, fontSize: 16, fontWeight: FontWeight.w700),
+          color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+      caption: GoogleFonts.openSans(
+          color: Colors.white, fontSize: 10, fontWeight: FontWeight.w600),
       subtitle1: GoogleFonts.openSans(
           color: const Color.fromRGBO(164, 164, 178, 1),
           fontSize: 14,

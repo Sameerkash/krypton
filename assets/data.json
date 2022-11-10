@@ -4,6 +4,24 @@
     "name": "Jon Ben",
     "avatar": ""
   },
+  "bottomTabs": [
+    {
+      "label": "Wallet",
+      "icon": "assets/wallet.svg"
+    },
+    {
+      "label": "Gallery",
+      "icon": "assets/gallery.svg"
+    },
+    {
+      "label": "Favourites",
+      "icon": "assets/star.svg"
+    },
+    {
+      "label": "Settings",
+      "icon": "assets/settings.svg"
+    }
+  ],
   "carousel_cards": [],
   "tokens": [
     {

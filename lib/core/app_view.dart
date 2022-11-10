@@ -4,6 +4,7 @@ import 'package:krypton/utils/strings.dart';
 
 import '../features/wallet/views/wallet_view.dart';
 import '../utils/colors.dart';
+import 'widgets/bottom_bar_item.dart';
 
 class AppView extends StatefulWidget {
   const AppView({super.key});
@@ -36,43 +37,25 @@ class _AppViewState extends State<AppView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: PageView(
-        controller: _pageController,
-        children: pages,
+      body: SafeArea(
+        child: PageView(
+          controller: _pageController,
+          children: pages,
+        ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onPageChange,
-        items: [
-          BottomNavigationBarItem(
-            backgroundColor: AppColors.primary,
-            icon: SvgPicture.asset(
-              ImagePaths.wallet,
-              color: Colors.white,
-            ),
-            label: 'Wallet',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              color: Colors.white,
-              ImagePaths.gallery,
-            ),
-            label: 'Gallery',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              ImagePaths.star,
-              color: Colors.white,
-            ),
-            label: 'Star',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              ImagePaths.settings,
-              color: Colors.white,
-            ),
-            label: 'Settings',
-          )
-        ],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        elevation: 2,
+        color: Theme.of(context).bottomAppBarColor,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 14),
+          child: Row(
+              // children:
+              ),
+        ),
       ),
     );
   }
