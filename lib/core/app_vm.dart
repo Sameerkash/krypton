@@ -1,15 +1,23 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:krypton/core/models/bottom_tab_item.dart';
-import 'package:krypton/core/models/user.dart';
+import 'dart:convert';
 
-part 'app_vm.freezed.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-@freezed
-class AppViewModel with _$AppViewModel {
-  const factory AppViewModel.loading() = _Loading;
-  const factory AppViewModel.error() = _Error;
-  const factory AppViewModel.data({
-    required final UserModel user,
-    required final List<BottomTabItemModel> bottomTabs,
-  }) = _Data;
+import 'models/app_state_model.dart';
+
+final appProvider = StateNotifierProvider<AppVM, AppStateModel>((ref) {
+  return AppVM();
+});
+
+class AppVM extends StateNotifier<AppStateModel> {
+  AppVM() : super(const AppStateModel.loading());
+
+  Future<void> getAppData() async {
+    final currentState = state;
+    if (currentState is AppStateModelLoading) {
+      String data = await rootBundle.loadString('assets/data.json');
+      final jsonResult = json.decode(data);
+      state = AppStateModel.fromJson(jsonResult);
+    }
+  }
 }

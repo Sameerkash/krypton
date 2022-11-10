@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'wallet_vm_model.dart';
+part of 'wallet_state_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,21 +14,21 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-WalletVMModel _$WalletVMModelFromJson(Map<String, dynamic> json) {
+WalletStateModel _$WalletStateModelFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'loading':
-      return _Loading.fromJson(json);
+      return WalletStateModelLoading.fromJson(json);
     case 'data':
-      return _Data.fromJson(json);
+      return WalletStateModelData.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'WalletVMModel',
+      throw CheckedFromJsonException(json, 'runtimeType', 'WalletStateModel',
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
 /// @nodoc
-mixin _$WalletVMModel {
+mixin _$WalletStateModel {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
@@ -53,20 +53,20 @@ mixin _$WalletVMModel {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Data value) data,
+    required TResult Function(WalletStateModelLoading value) loading,
+    required TResult Function(WalletStateModelData value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Data value)? data,
+    TResult? Function(WalletStateModelLoading value)? loading,
+    TResult? Function(WalletStateModelData value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Data value)? data,
+    TResult Function(WalletStateModelLoading value)? loading,
+    TResult Function(WalletStateModelData value)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,16 +74,16 @@ mixin _$WalletVMModel {
 }
 
 /// @nodoc
-abstract class $WalletVMModelCopyWith<$Res> {
-  factory $WalletVMModelCopyWith(
-          WalletVMModel value, $Res Function(WalletVMModel) then) =
-      _$WalletVMModelCopyWithImpl<$Res, WalletVMModel>;
+abstract class $WalletStateModelCopyWith<$Res> {
+  factory $WalletStateModelCopyWith(
+          WalletStateModel value, $Res Function(WalletStateModel) then) =
+      _$WalletStateModelCopyWithImpl<$Res, WalletStateModel>;
 }
 
 /// @nodoc
-class _$WalletVMModelCopyWithImpl<$Res, $Val extends WalletVMModel>
-    implements $WalletVMModelCopyWith<$Res> {
-  _$WalletVMModelCopyWithImpl(this._value, this._then);
+class _$WalletStateModelCopyWithImpl<$Res, $Val extends WalletStateModel>
+    implements $WalletStateModelCopyWith<$Res> {
+  _$WalletStateModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -92,40 +92,43 @@ class _$WalletVMModelCopyWithImpl<$Res, $Val extends WalletVMModel>
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$WalletStateModelLoadingCopyWith<$Res> {
+  factory _$$WalletStateModelLoadingCopyWith(_$WalletStateModelLoading value,
+          $Res Function(_$WalletStateModelLoading) then) =
+      __$$WalletStateModelLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$WalletVMModelCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$WalletStateModelLoadingCopyWithImpl<$Res>
+    extends _$WalletStateModelCopyWithImpl<$Res, _$WalletStateModelLoading>
+    implements _$$WalletStateModelLoadingCopyWith<$Res> {
+  __$$WalletStateModelLoadingCopyWithImpl(_$WalletStateModelLoading _value,
+      $Res Function(_$WalletStateModelLoading) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Loading implements _Loading {
-  const _$_Loading({final String? $type}) : $type = $type ?? 'loading';
+class _$WalletStateModelLoading implements WalletStateModelLoading {
+  const _$WalletStateModelLoading({final String? $type})
+      : $type = $type ?? 'loading';
 
-  factory _$_Loading.fromJson(Map<String, dynamic> json) =>
-      _$$_LoadingFromJson(json);
+  factory _$WalletStateModelLoading.fromJson(Map<String, dynamic> json) =>
+      _$$WalletStateModelLoadingFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'WalletVMModel.loading()';
+    return 'WalletStateModel.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType &&
+            other is _$WalletStateModelLoading);
   }
 
   @JsonKey(ignore: true)
@@ -169,8 +172,8 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Data value) data,
+    required TResult Function(WalletStateModelLoading value) loading,
+    required TResult Function(WalletStateModelData value) data,
   }) {
     return loading(this);
   }
@@ -178,8 +181,8 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Data value)? data,
+    TResult? Function(WalletStateModelLoading value)? loading,
+    TResult? Function(WalletStateModelData value)? data,
   }) {
     return loading?.call(this);
   }
@@ -187,8 +190,8 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Data value)? data,
+    TResult Function(WalletStateModelLoading value)? loading,
+    TResult Function(WalletStateModelData value)? data,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -199,31 +202,34 @@ class _$_Loading implements _Loading {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LoadingToJson(
+    return _$$WalletStateModelLoadingToJson(
       this,
     );
   }
 }
 
-abstract class _Loading implements WalletVMModel {
-  const factory _Loading() = _$_Loading;
+abstract class WalletStateModelLoading implements WalletStateModel {
+  const factory WalletStateModelLoading() = _$WalletStateModelLoading;
 
-  factory _Loading.fromJson(Map<String, dynamic> json) = _$_Loading.fromJson;
+  factory WalletStateModelLoading.fromJson(Map<String, dynamic> json) =
+      _$WalletStateModelLoading.fromJson;
 }
 
 /// @nodoc
-abstract class _$$_DataCopyWith<$Res> {
-  factory _$$_DataCopyWith(_$_Data value, $Res Function(_$_Data) then) =
-      __$$_DataCopyWithImpl<$Res>;
+abstract class _$$WalletStateModelDataCopyWith<$Res> {
+  factory _$$WalletStateModelDataCopyWith(_$WalletStateModelData value,
+          $Res Function(_$WalletStateModelData) then) =
+      __$$WalletStateModelDataCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String> carouselCards, List<TokenModel> tokens});
 }
 
 /// @nodoc
-class __$$_DataCopyWithImpl<$Res>
-    extends _$WalletVMModelCopyWithImpl<$Res, _$_Data>
-    implements _$$_DataCopyWith<$Res> {
-  __$$_DataCopyWithImpl(_$_Data _value, $Res Function(_$_Data) _then)
+class __$$WalletStateModelDataCopyWithImpl<$Res>
+    extends _$WalletStateModelCopyWithImpl<$Res, _$WalletStateModelData>
+    implements _$$WalletStateModelDataCopyWith<$Res> {
+  __$$WalletStateModelDataCopyWithImpl(_$WalletStateModelData _value,
+      $Res Function(_$WalletStateModelData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +238,7 @@ class __$$_DataCopyWithImpl<$Res>
     Object? carouselCards = null,
     Object? tokens = null,
   }) {
-    return _then(_$_Data(
+    return _then(_$WalletStateModelData(
       carouselCards: null == carouselCards
           ? _value._carouselCards
           : carouselCards // ignore: cast_nullable_to_non_nullable
@@ -247,8 +253,8 @@ class __$$_DataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Data implements _Data {
-  const _$_Data(
+class _$WalletStateModelData implements WalletStateModelData {
+  const _$WalletStateModelData(
       {final List<String> carouselCards = const [],
       final List<TokenModel> tokens = const [],
       final String? $type})
@@ -256,7 +262,8 @@ class _$_Data implements _Data {
         _tokens = tokens,
         $type = $type ?? 'data';
 
-  factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
+  factory _$WalletStateModelData.fromJson(Map<String, dynamic> json) =>
+      _$$WalletStateModelDataFromJson(json);
 
   final List<String> _carouselCards;
   @override
@@ -279,14 +286,14 @@ class _$_Data implements _Data {
 
   @override
   String toString() {
-    return 'WalletVMModel.data(carouselCards: $carouselCards, tokens: $tokens)';
+    return 'WalletStateModel.data(carouselCards: $carouselCards, tokens: $tokens)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Data &&
+            other is _$WalletStateModelData &&
             const DeepCollectionEquality()
                 .equals(other._carouselCards, _carouselCards) &&
             const DeepCollectionEquality().equals(other._tokens, _tokens));
@@ -302,8 +309,9 @@ class _$_Data implements _Data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DataCopyWith<_$_Data> get copyWith =>
-      __$$_DataCopyWithImpl<_$_Data>(this, _$identity);
+  _$$WalletStateModelDataCopyWith<_$WalletStateModelData> get copyWith =>
+      __$$WalletStateModelDataCopyWithImpl<_$WalletStateModelData>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -342,8 +350,8 @@ class _$_Data implements _Data {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Data value) data,
+    required TResult Function(WalletStateModelLoading value) loading,
+    required TResult Function(WalletStateModelData value) data,
   }) {
     return data(this);
   }
@@ -351,8 +359,8 @@ class _$_Data implements _Data {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Data value)? data,
+    TResult? Function(WalletStateModelLoading value)? loading,
+    TResult? Function(WalletStateModelData value)? data,
   }) {
     return data?.call(this);
   }
@@ -360,8 +368,8 @@ class _$_Data implements _Data {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Data value)? data,
+    TResult Function(WalletStateModelLoading value)? loading,
+    TResult Function(WalletStateModelData value)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -372,21 +380,23 @@ class _$_Data implements _Data {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataToJson(
+    return _$$WalletStateModelDataToJson(
       this,
     );
   }
 }
 
-abstract class _Data implements WalletVMModel {
-  const factory _Data(
+abstract class WalletStateModelData implements WalletStateModel {
+  const factory WalletStateModelData(
       {final List<String> carouselCards,
-      final List<TokenModel> tokens}) = _$_Data;
+      final List<TokenModel> tokens}) = _$WalletStateModelData;
 
-  factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
+  factory WalletStateModelData.fromJson(Map<String, dynamic> json) =
+      _$WalletStateModelData.fromJson;
 
   List<String> get carouselCards;
   List<TokenModel> get tokens;
   @JsonKey(ignore: true)
-  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
+  _$$WalletStateModelDataCopyWith<_$WalletStateModelData> get copyWith =>
+      throw _privateConstructorUsedError;
 }

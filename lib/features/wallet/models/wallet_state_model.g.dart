@@ -1,21 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'wallet_vm_model.dart';
+part of 'wallet_state_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Loading _$$_LoadingFromJson(Map<String, dynamic> json) => _$_Loading(
+_$WalletStateModelLoading _$$WalletStateModelLoadingFromJson(
+        Map<String, dynamic> json) =>
+    _$WalletStateModelLoading(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_LoadingToJson(_$_Loading instance) =>
+Map<String, dynamic> _$$WalletStateModelLoadingToJson(
+        _$WalletStateModelLoading instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+_$WalletStateModelData _$$WalletStateModelDataFromJson(
+        Map<String, dynamic> json) =>
+    _$WalletStateModelData(
       carouselCards: (json['carouselCards'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -27,7 +32,9 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$WalletStateModelDataToJson(
+        _$WalletStateModelData instance) =>
+    <String, dynamic>{
       'carouselCards': instance.carouselCards,
       'tokens': instance.tokens,
       'runtimeType': instance.$type,
