@@ -22,7 +22,11 @@
       "icon": "assets/settings.svg"
     }
   ],
-  "carousel_cards": [],
+  "carouselCards": [
+    "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/banner1.png",
+    "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/banner3.png",
+    "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/banner2.png"
+  ],
   "tokens": [
     {
       "name": "Tezos",

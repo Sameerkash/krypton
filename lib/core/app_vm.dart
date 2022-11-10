@@ -22,4 +22,11 @@ class AppVM extends StateNotifier<AppStateModel> {
       state = AppStateModel.fromJson({'runtimeType': 'data', ...jsonResult});
     }
   }
+
+  void onTabChange(int index) {
+    final currentState = state;
+    if (currentState is AppStateModelData) {
+      state = currentState.copyWith(index: index);
+    }
+  }
 }

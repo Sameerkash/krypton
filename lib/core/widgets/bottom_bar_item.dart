@@ -6,13 +6,14 @@ import '../../utils/colors.dart';
 class BottomBarItem extends StatelessWidget {
   final String path;
   final String label;
+  final Color color;
   final VoidCallback onTap;
   const BottomBarItem({
     Key? key,
     required this.path,
     required this.label,
     required this.onTap,
-    bool placeHolder = false,
+    this.color = Colors.white,
   }) : super(key: key);
 
   @override
@@ -29,11 +30,12 @@ class BottomBarItem extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 path,
-                color: Colors.white,
+                color: color,
               ),
               Text(
                 label,
-                style: Theme.of(context).textTheme.caption,
+                style:
+                    Theme.of(context).textTheme.caption!.copyWith(color: color),
               )
             ],
           ),

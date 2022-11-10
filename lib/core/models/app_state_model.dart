@@ -11,6 +11,7 @@ class AppStateModel with _$AppStateModel {
   const factory AppStateModel.data({
     required final UserModel user,
     required final List<BottomTabItemModel> bottomTabs,
+    @Default(0) int index,
   }) = AppStateModelData;
 
 

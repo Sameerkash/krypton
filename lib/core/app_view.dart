@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:krypton/core/app_vm.dart';
 import 'package:krypton/core/widgets/bottom_bar_item.dart';
+import 'package:krypton/features/wallet/views/wallet_vm.dart';
 import 'package:krypton/utils/strings.dart';
 
 import '../features/wallet/views/wallet_view.dart';
@@ -32,6 +33,7 @@ class _AppViewState extends ConsumerState<AppView> {
   }
 
   void onPageChange(int index) {
+    ref.read(appProvider.notifier).onTabChange(index);
     _pageController.jumpToPage(index);
   }
 
@@ -44,6 +46,7 @@ class _AppViewState extends ConsumerState<AppView> {
       body: SafeArea(
         child: PageView(
           controller: _pageController,
+          onPageChanged: onPageChange,
           children: pages,
         ),
       ),
@@ -52,7 +55,7 @@ class _AppViewState extends ConsumerState<AppView> {
         onPressed: () {},
         elevation: 0,
         child: Container(
-          padding: const EdgeInsets.all(2),
+          padding: const EdgeInsets.all(6),
           decoration: const BoxDecoration(
             color: Colors.yellow,
             shape: BoxShape.circle,
@@ -67,21 +70,24 @@ class _AppViewState extends ConsumerState<AppView> {
           height: 50,
           color: Colors.grey,
         ),
-        data: (value) => BottomAppBar(
+        data: (data) => BottomAppBar(
           elevation: 2,
           color: Theme.of(context).bottomAppBarColor,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: value.bottomTabs
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: data.bottomTabs
                   .asMap()
                   .entries
                   .map(
                     (e) => BottomBarItem(
                       label: e.value.label,
                       path: e.value.icon,
-                      onTap: () {},
+                      color: e.key == data.index ? Colors.yellow : Colors.white,
+                      onTap: () {
+                        onPageChange(e.key);
+                      },
                     ),
                   )
                   .toList(),

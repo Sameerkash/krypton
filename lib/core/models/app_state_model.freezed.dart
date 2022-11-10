@@ -36,7 +36,7 @@ mixin _$AppStateModel {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(
-            UserModel user, List<BottomTabItemModel> bottomTabs)
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)
         data,
   }) =>
       throw _privateConstructorUsedError;
@@ -44,7 +44,8 @@ mixin _$AppStateModel {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(UserModel user, List<BottomTabItemModel> bottomTabs)?
+    TResult? Function(
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)?
         data,
   }) =>
       throw _privateConstructorUsedError;
@@ -52,7 +53,9 @@ mixin _$AppStateModel {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(UserModel user, List<BottomTabItemModel> bottomTabs)? data,
+    TResult Function(
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)?
+        data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,7 +151,7 @@ class _$AppStateModelLoading implements AppStateModelLoading {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(
-            UserModel user, List<BottomTabItemModel> bottomTabs)
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)
         data,
   }) {
     return loading();
@@ -159,7 +162,8 @@ class _$AppStateModelLoading implements AppStateModelLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(UserModel user, List<BottomTabItemModel> bottomTabs)?
+    TResult? Function(
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)?
         data,
   }) {
     return loading?.call();
@@ -170,7 +174,9 @@ class _$AppStateModelLoading implements AppStateModelLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(UserModel user, List<BottomTabItemModel> bottomTabs)? data,
+    TResult Function(
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)?
+        data,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -276,7 +282,7 @@ class _$AppStateModelError implements AppStateModelError {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(
-            UserModel user, List<BottomTabItemModel> bottomTabs)
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)
         data,
   }) {
     return error();
@@ -287,7 +293,8 @@ class _$AppStateModelError implements AppStateModelError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(UserModel user, List<BottomTabItemModel> bottomTabs)?
+    TResult? Function(
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)?
         data,
   }) {
     return error?.call();
@@ -298,7 +305,9 @@ class _$AppStateModelError implements AppStateModelError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(UserModel user, List<BottomTabItemModel> bottomTabs)? data,
+    TResult Function(
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)?
+        data,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -362,7 +371,7 @@ abstract class _$$AppStateModelDataCopyWith<$Res> {
           _$AppStateModelData value, $Res Function(_$AppStateModelData) then) =
       __$$AppStateModelDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel user, List<BottomTabItemModel> bottomTabs});
+  $Res call({UserModel user, List<BottomTabItemModel> bottomTabs, int index});
 
   $UserModelCopyWith<$Res> get user;
 }
@@ -380,6 +389,7 @@ class __$$AppStateModelDataCopyWithImpl<$Res>
   $Res call({
     Object? user = null,
     Object? bottomTabs = null,
+    Object? index = null,
   }) {
     return _then(_$AppStateModelData(
       user: null == user
@@ -390,6 +400,10 @@ class __$$AppStateModelDataCopyWithImpl<$Res>
           ? _value._bottomTabs
           : bottomTabs // ignore: cast_nullable_to_non_nullable
               as List<BottomTabItemModel>,
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 
@@ -408,6 +422,7 @@ class _$AppStateModelData implements AppStateModelData {
   const _$AppStateModelData(
       {required this.user,
       required final List<BottomTabItemModel> bottomTabs,
+      this.index = 0,
       final String? $type})
       : _bottomTabs = bottomTabs,
         $type = $type ?? 'data';
@@ -424,12 +439,16 @@ class _$AppStateModelData implements AppStateModelData {
     return EqualUnmodifiableListView(_bottomTabs);
   }
 
+  @override
+  @JsonKey()
+  final int index;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'AppStateModel.data(user: $user, bottomTabs: $bottomTabs)';
+    return 'AppStateModel.data(user: $user, bottomTabs: $bottomTabs, index: $index)';
   }
 
   @override
@@ -439,13 +458,14 @@ class _$AppStateModelData implements AppStateModelData {
             other is _$AppStateModelData &&
             (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality()
-                .equals(other._bottomTabs, _bottomTabs));
+                .equals(other._bottomTabs, _bottomTabs) &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, user, const DeepCollectionEquality().hash(_bottomTabs));
+  int get hashCode => Object.hash(runtimeType, user,
+      const DeepCollectionEquality().hash(_bottomTabs), index);
 
   @JsonKey(ignore: true)
   @override
@@ -459,10 +479,10 @@ class _$AppStateModelData implements AppStateModelData {
     required TResult Function() loading,
     required TResult Function() error,
     required TResult Function(
-            UserModel user, List<BottomTabItemModel> bottomTabs)
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)
         data,
   }) {
-    return data(user, bottomTabs);
+    return data(user, bottomTabs, index);
   }
 
   @override
@@ -470,10 +490,11 @@ class _$AppStateModelData implements AppStateModelData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(UserModel user, List<BottomTabItemModel> bottomTabs)?
+    TResult? Function(
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)?
         data,
   }) {
-    return data?.call(user, bottomTabs);
+    return data?.call(user, bottomTabs, index);
   }
 
   @override
@@ -481,11 +502,13 @@ class _$AppStateModelData implements AppStateModelData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(UserModel user, List<BottomTabItemModel> bottomTabs)? data,
+    TResult Function(
+            UserModel user, List<BottomTabItemModel> bottomTabs, int index)?
+        data,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(user, bottomTabs);
+      return data(user, bottomTabs, index);
     }
     return orElse();
   }
@@ -534,15 +557,16 @@ class _$AppStateModelData implements AppStateModelData {
 
 abstract class AppStateModelData implements AppStateModel {
   const factory AppStateModelData(
-          {required final UserModel user,
-          required final List<BottomTabItemModel> bottomTabs}) =
-      _$AppStateModelData;
+      {required final UserModel user,
+      required final List<BottomTabItemModel> bottomTabs,
+      final int index}) = _$AppStateModelData;
 
   factory AppStateModelData.fromJson(Map<String, dynamic> json) =
       _$AppStateModelData.fromJson;
 
   UserModel get user;
   List<BottomTabItemModel> get bottomTabs;
+  int get index;
   @JsonKey(ignore: true)
   _$$AppStateModelDataCopyWith<_$AppStateModelData> get copyWith =>
       throw _privateConstructorUsedError;

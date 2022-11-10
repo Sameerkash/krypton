@@ -35,6 +35,7 @@ _$AppStateModelData _$$AppStateModelDataFromJson(Map<String, dynamic> json) =>
       bottomTabs: (json['bottomTabs'] as List<dynamic>)
           .map((e) => BottomTabItemModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      index: json['index'] as int? ?? 0,
       $type: json['runtimeType'] as String?,
     );
 
@@ -42,5 +43,6 @@ Map<String, dynamic> _$$AppStateModelDataToJson(_$AppStateModelData instance) =>
     <String, dynamic>{
       'user': instance.user,
       'bottomTabs': instance.bottomTabs,
+      'index': instance.index,
       'runtimeType': instance.$type,
     };
