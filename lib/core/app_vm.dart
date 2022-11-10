@@ -10,14 +10,16 @@ final appProvider = StateNotifierProvider<AppVM, AppStateModel>((ref) {
 });
 
 class AppVM extends StateNotifier<AppStateModel> {
-  AppVM() : super(const AppStateModel.loading());
+  AppVM() : super(const AppStateModel.loading()) {
+    getAppData();
+  }
 
   Future<void> getAppData() async {
     final currentState = state;
     if (currentState is AppStateModelLoading) {
       String data = await rootBundle.loadString('assets/data.json');
       final jsonResult = json.decode(data);
-      state = AppStateModel.fromJson(jsonResult);
+      state = AppStateModel.fromJson({'runtimeType': 'data', ...jsonResult});
     }
   }
 }

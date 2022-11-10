@@ -1,6 +1,6 @@
 {
   "user": {
-    "balance": 46.78,
+    "balance": 46,
     "name": "Jon Ben",
     "avatar": ""
   },
@@ -28,21 +28,21 @@
       "name": "Tezos",
       "symbol": "XTZ",
       "balance": 64,
-      "currentPrice": 255.21,
+      "currentPrice": 255,
       "iconUrl": ""
     },
     {
       "name": "Dogami",
       "symbol": "Doga",
       "balance": 764,
-      "currentPrice": 55.21,
+      "currentPrice": 55,
       "iconUrl": ""
     },
     {
       "name": "GIF",
       "symbol": "Gif",
-      "balance": 0.0164,
-      "currentPrice": 1.21,
+      "balance": 23,
+      "currentPrice": 1,
       "iconUrl": ""
     }
   ]
