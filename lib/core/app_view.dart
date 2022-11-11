@@ -3,11 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:krypton/core/app_vm.dart';
 import 'package:krypton/core/widgets/bottom_bar_item.dart';
-import 'package:krypton/features/wallet/views/wallet_vm.dart';
 import 'package:krypton/utils/strings.dart';
 
 import '../features/wallet/views/wallet_view.dart';
-import '../utils/colors.dart';
 
 class AppView extends ConsumerStatefulWidget {
   const AppView({super.key});
@@ -42,7 +40,6 @@ class _AppViewState extends ConsumerState<AppView> {
     final appState = ref.watch(appProvider);
 
     return Scaffold(
-      backgroundColor: AppColors.primary,
       body: SafeArea(
         child: PageView(
           controller: _pageController,

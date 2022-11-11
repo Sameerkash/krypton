@@ -3,8 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:krypton/features/wallet/widgets/transaction_button.dart';
 import 'package:krypton/utils/strings.dart';
 
-import '../../../utils/colors.dart';
-
 class ProfileCard extends StatelessWidget {
   final int balance;
   final String name;
@@ -21,7 +19,7 @@ class ProfileCard extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.secondary,
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
