@@ -17,14 +17,13 @@ class SortTextContainer extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
-          if (isActive)
-            Text(
-              label,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText2!
-                  .copyWith(color: isActive ? Colors.black : Colors.white),
-            )
+          Text(
+            label,
+            style: Theme.of(context)
+                .textTheme
+                .bodyText2!
+                .copyWith(color: isActive ? Colors.black : Colors.white),
+          )
         ],
       ),
     );

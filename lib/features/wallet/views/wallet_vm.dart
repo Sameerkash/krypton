@@ -38,8 +38,10 @@ class WalletVM extends StateNotifier<WalletStateModel> {
   void changeSortOrder(SortOrder sort) {
     final currentState = state;
     if (currentState is WalletStateModelData) {
-      final tokens = currentState.tokens.reversed.toList();
-      state = currentState.copyWith(sortBy: sort, tokens: tokens);
+      if (sort != currentState.sortBy) {
+        final tokens = currentState.tokens.reversed.toList();
+        state = currentState.copyWith(sortBy: sort, tokens: tokens);
+      }
     }
   }
 }

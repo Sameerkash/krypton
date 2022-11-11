@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:krypton/features/wallet/widgets/sort_text_container.dart';
 
 import '../models/token.dart';
+import '../views/wallet_vm.dart';
 
 class WalletViewBottomSheet {
-  static Future<dynamic> showSortSheet(
-      BuildContext context, List<SortItemOptions>? items,
-      {SortOrder? activeSort = SortOrder.desc,
-      required Function(SortOrder sort) onTap}) {
+  static Future<dynamic> showSortSheet(BuildContext context,
+      {required WidgetRef ref, required Function(SortOrder sort) onTap}) {
     return showModalBottomSheet(
       barrierColor: Colors.black.withOpacity(0.5),
       backgroundColor: Colors.transparent,
       context: context,
       builder: (context) {
+        final walletState = ref.watch(walletViewProvider);
+
+        final items =
+            walletState.mapOrNull(data: ((value) => value.sortItemOptions));
+        final activeSort =
+            walletState.mapOrNull(data: ((value) => value.sortBy)) ??
+                SortOrder.desc;
+
         return Container(
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
@@ -68,7 +76,10 @@ class WalletViewBottomSheet {
                 ...items
                     .map(
                       (e) => GestureDetector(
-                        onTap: () => onTap(e.sort),
+                        onTap: () {
+                          onTap(e.sort);
+                          Navigator.of(context).pop();
+                        },
                         child: SortTextContainer(
                           label: e.text,
                           isActive: e.sort == activeSort,
