@@ -33,21 +33,27 @@ mixin _$WalletStateModel {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            List<String> carouselCards, List<TokenModel> tokens)
+            List<String> carouselCards,
+            List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions,
+            SortOrder sortBy)
         data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<String> carouselCards, List<TokenModel> tokens)?
+    TResult? Function(List<String> carouselCards, List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions, SortOrder sortBy)?
         data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<String> carouselCards, List<TokenModel> tokens)? data,
+    TResult Function(List<String> carouselCards, List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions, SortOrder sortBy)?
+        data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,7 +146,10 @@ class _$WalletStateModelLoading implements WalletStateModelLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            List<String> carouselCards, List<TokenModel> tokens)
+            List<String> carouselCards,
+            List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions,
+            SortOrder sortBy)
         data,
   }) {
     return loading();
@@ -150,7 +159,8 @@ class _$WalletStateModelLoading implements WalletStateModelLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<String> carouselCards, List<TokenModel> tokens)?
+    TResult? Function(List<String> carouselCards, List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions, SortOrder sortBy)?
         data,
   }) {
     return loading?.call();
@@ -160,7 +170,9 @@ class _$WalletStateModelLoading implements WalletStateModelLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<String> carouselCards, List<TokenModel> tokens)? data,
+    TResult Function(List<String> carouselCards, List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions, SortOrder sortBy)?
+        data,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -221,7 +233,11 @@ abstract class _$$WalletStateModelDataCopyWith<$Res> {
           $Res Function(_$WalletStateModelData) then) =
       __$$WalletStateModelDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<String> carouselCards, List<TokenModel> tokens});
+  $Res call(
+      {List<String> carouselCards,
+      List<TokenModel> tokens,
+      List<SortItemOptions> sortItemOptions,
+      SortOrder sortBy});
 }
 
 /// @nodoc
@@ -237,6 +253,8 @@ class __$$WalletStateModelDataCopyWithImpl<$Res>
   $Res call({
     Object? carouselCards = null,
     Object? tokens = null,
+    Object? sortItemOptions = null,
+    Object? sortBy = null,
   }) {
     return _then(_$WalletStateModelData(
       carouselCards: null == carouselCards
@@ -247,6 +265,14 @@ class __$$WalletStateModelDataCopyWithImpl<$Res>
           ? _value._tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as List<TokenModel>,
+      sortItemOptions: null == sortItemOptions
+          ? _value._sortItemOptions
+          : sortItemOptions // ignore: cast_nullable_to_non_nullable
+              as List<SortItemOptions>,
+      sortBy: null == sortBy
+          ? _value.sortBy
+          : sortBy // ignore: cast_nullable_to_non_nullable
+              as SortOrder,
     ));
   }
 }
@@ -257,9 +283,12 @@ class _$WalletStateModelData implements WalletStateModelData {
   const _$WalletStateModelData(
       {final List<String> carouselCards = const [],
       final List<TokenModel> tokens = const [],
+      final List<SortItemOptions> sortItemOptions = const [],
+      this.sortBy = SortOrder.desc,
       final String? $type})
       : _carouselCards = carouselCards,
         _tokens = tokens,
+        _sortItemOptions = sortItemOptions,
         $type = $type ?? 'data';
 
   factory _$WalletStateModelData.fromJson(Map<String, dynamic> json) =>
@@ -281,12 +310,24 @@ class _$WalletStateModelData implements WalletStateModelData {
     return EqualUnmodifiableListView(_tokens);
   }
 
+  final List<SortItemOptions> _sortItemOptions;
+  @override
+  @JsonKey()
+  List<SortItemOptions> get sortItemOptions {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sortItemOptions);
+  }
+
+  @override
+  @JsonKey()
+  final SortOrder sortBy;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'WalletStateModel.data(carouselCards: $carouselCards, tokens: $tokens)';
+    return 'WalletStateModel.data(carouselCards: $carouselCards, tokens: $tokens, sortItemOptions: $sortItemOptions, sortBy: $sortBy)';
   }
 
   @override
@@ -296,7 +337,10 @@ class _$WalletStateModelData implements WalletStateModelData {
             other is _$WalletStateModelData &&
             const DeepCollectionEquality()
                 .equals(other._carouselCards, _carouselCards) &&
-            const DeepCollectionEquality().equals(other._tokens, _tokens));
+            const DeepCollectionEquality().equals(other._tokens, _tokens) &&
+            const DeepCollectionEquality()
+                .equals(other._sortItemOptions, _sortItemOptions) &&
+            (identical(other.sortBy, sortBy) || other.sortBy == sortBy));
   }
 
   @JsonKey(ignore: true)
@@ -304,7 +348,9 @@ class _$WalletStateModelData implements WalletStateModelData {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_carouselCards),
-      const DeepCollectionEquality().hash(_tokens));
+      const DeepCollectionEquality().hash(_tokens),
+      const DeepCollectionEquality().hash(_sortItemOptions),
+      sortBy);
 
   @JsonKey(ignore: true)
   @override
@@ -318,31 +364,37 @@ class _$WalletStateModelData implements WalletStateModelData {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            List<String> carouselCards, List<TokenModel> tokens)
+            List<String> carouselCards,
+            List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions,
+            SortOrder sortBy)
         data,
   }) {
-    return data(carouselCards, tokens);
+    return data(carouselCards, tokens, sortItemOptions, sortBy);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<String> carouselCards, List<TokenModel> tokens)?
+    TResult? Function(List<String> carouselCards, List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions, SortOrder sortBy)?
         data,
   }) {
-    return data?.call(carouselCards, tokens);
+    return data?.call(carouselCards, tokens, sortItemOptions, sortBy);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<String> carouselCards, List<TokenModel> tokens)? data,
+    TResult Function(List<String> carouselCards, List<TokenModel> tokens,
+            List<SortItemOptions> sortItemOptions, SortOrder sortBy)?
+        data,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(carouselCards, tokens);
+      return data(carouselCards, tokens, sortItemOptions, sortBy);
     }
     return orElse();
   }
@@ -389,13 +441,17 @@ class _$WalletStateModelData implements WalletStateModelData {
 abstract class WalletStateModelData implements WalletStateModel {
   const factory WalletStateModelData(
       {final List<String> carouselCards,
-      final List<TokenModel> tokens}) = _$WalletStateModelData;
+      final List<TokenModel> tokens,
+      final List<SortItemOptions> sortItemOptions,
+      final SortOrder sortBy}) = _$WalletStateModelData;
 
   factory WalletStateModelData.fromJson(Map<String, dynamic> json) =
       _$WalletStateModelData.fromJson;
 
   List<String> get carouselCards;
   List<TokenModel> get tokens;
+  List<SortItemOptions> get sortItemOptions;
+  SortOrder get sortBy;
   @JsonKey(ignore: true)
   _$$WalletStateModelDataCopyWith<_$WalletStateModelData> get copyWith =>
       throw _privateConstructorUsedError;

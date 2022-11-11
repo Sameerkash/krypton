@@ -74,7 +74,7 @@ class _AppViewState extends ConsumerState<AppView> {
           elevation: 2,
           color: Theme.of(context).bottomAppBarColor,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: data.bottomTabs

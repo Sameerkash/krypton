@@ -29,6 +29,12 @@ _$WalletStateModelData _$$WalletStateModelDataFromJson(
               ?.map((e) => TokenModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      sortItemOptions: (json['sortItemOptions'] as List<dynamic>?)
+              ?.map((e) => SortItemOptions.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      sortBy: $enumDecodeNullable(_$SortOrderEnumMap, json['sortBy']) ??
+          SortOrder.desc,
       $type: json['runtimeType'] as String?,
     );
 
@@ -37,5 +43,12 @@ Map<String, dynamic> _$$WalletStateModelDataToJson(
     <String, dynamic>{
       'carouselCards': instance.carouselCards,
       'tokens': instance.tokens,
+      'sortItemOptions': instance.sortItemOptions,
+      'sortBy': _$SortOrderEnumMap[instance.sortBy]!,
       'runtimeType': instance.$type,
     };
+
+const _$SortOrderEnumMap = {
+  SortOrder.asc: 'asc',
+  SortOrder.desc: 'desc',
+};

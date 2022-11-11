@@ -6,18 +6,26 @@ class AppTheme {
 
   static final ThemeData theme = ThemeData(
     // main colors
+    colorScheme: ColorScheme(
+      secondary: Colors.yellow,
+      brightness: Brightness.dark,
+      primary: Colors.black,
+      onPrimary: Colors.black,
+      onSecondary: Colors.yellow,
+      error: const Color.fromRGBO(255, 0, 92, 1),
+      onError: const Color.fromRGBO(255, 0, 92, 1),
+      background: Colors.grey[800]!,
+      onBackground: Colors.grey[800]!,
+      surface: Colors.black,
+      onSurface: Colors.black,
+    ),
 
-    // background colors
-    primaryColor: Colors.black,
-    backgroundColor: Colors.grey[800],
     scaffoldBackgroundColor: Colors.grey[800],
     bottomAppBarColor: Colors.grey[800],
-    cardColor: Colors.black,
-
+    backgroundColor: Colors.grey[800],
     // other colors
     splashColor: Colors.grey,
     hoverColor: Colors.black,
-    errorColor: const Color.fromRGBO(255, 0, 92, 1),
     indicatorColor: Colors.black54,
 
     // icon theme
@@ -25,34 +33,39 @@ class AppTheme {
       color: Colors.grey,
     ),
 
+    textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+            backgroundColor: Colors.yellow,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 13))),
+
     textTheme: TextTheme(
       // need to caption style (currently using default caption style)
-      headline1: GoogleFonts.openSans(color: Colors.black, fontSize: 30),
-      headline2: GoogleFonts.openSans(
+      headline1: GoogleFonts.poppins(color: Colors.black, fontSize: 30),
+      headline2: GoogleFonts.poppins(
           color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
-      headline3: GoogleFonts.openSans(
+      headline3: GoogleFonts.poppins(
           color: Colors.white, fontSize: 22, fontWeight: FontWeight.w800),
-      headline4: GoogleFonts.openSans(
+      headline4: GoogleFonts.poppins(
           color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
-      headline5: GoogleFonts.openSans(
+      headline5: GoogleFonts.poppins(
           color: Colors.white, fontSize: 28, fontWeight: FontWeight.w700),
-      bodyText1: GoogleFonts.openSans(
+      bodyText1: GoogleFonts.poppins(
           color: Colors.yellow, fontSize: 18, fontWeight: FontWeight.w600),
-      bodyText2: GoogleFonts.openSans(
-          color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
-      caption: GoogleFonts.openSans(
+      bodyText2: GoogleFonts.poppins(
+          color: Colors.white, fontSize: 14, fontWeight: FontWeight.w700),
+      caption: GoogleFonts.poppins(
           color: Colors.white, fontSize: 10, fontWeight: FontWeight.w600),
-      subtitle1: GoogleFonts.openSans(
+      subtitle1: GoogleFonts.poppins(
           color: const Color.fromRGBO(164, 164, 178, 1),
-          fontSize: 14,
-          fontWeight: FontWeight.w700),
-      subtitle2: GoogleFonts.openSans(
+          fontSize: 12,
+          fontWeight: FontWeight.w400),
+      subtitle2: GoogleFonts.poppins(
           color: Colors.black, fontSize: 21, fontWeight: FontWeight.w300),
-      labelMedium: GoogleFonts.openSans(
+      labelMedium: GoogleFonts.poppins(
           color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w900),
-    ),
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      brightness: Brightness.light,
     ),
   );
 }

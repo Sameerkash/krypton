@@ -2,7 +2,7 @@
   "user": {
     "balance": 46,
     "name": "Jon Ben",
-    "avatar": ""
+    "avatar": "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/user_avatar.png"
   },
   "bottomTabs": [
     {
@@ -23,9 +23,9 @@
     }
   ],
   "carouselCards": [
-    "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/banner1.png",
+    "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/banner2.png",
     "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/banner3.png",
-    "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/banner2.png"
+    "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/banner1.png"
   ],
   "tokens": [
     {
@@ -33,21 +33,32 @@
       "symbol": "XTZ",
       "balance": 64,
       "currentPrice": 255,
-      "iconUrl": ""
+      "iconUrl": "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/xtz.png"
     },
     {
       "name": "Dogami",
       "symbol": "Doga",
       "balance": 764,
       "currentPrice": 55,
-      "iconUrl": ""
+      "iconUrl": "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/doga.png"
     },
     {
       "name": "GIF",
       "symbol": "Gif",
       "balance": 23,
       "currentPrice": 1,
-      "iconUrl": ""
+      "iconUrl": "https://raw.githubusercontent.com/Sameerkash/krypton/main/images/GIF.png"
+    }
+  ],
+  "sortItemOptions": [
+    {
+      "text": "Price : Lowest to high",
+      "sort": "asc"
+    },
+
+    {
+      "text": "Price : Highest to low",
+      "sort": "desc"
     }
   ]
 }

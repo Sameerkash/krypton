@@ -4,12 +4,16 @@ import 'package:krypton/features/wallet/models/token.dart';
 part 'wallet_state_model.g.dart';
 part 'wallet_state_model.freezed.dart';
 
+
+
 @freezed
 class WalletStateModel with _$WalletStateModel {
   const factory WalletStateModel.loading() = WalletStateModelLoading;
   const factory WalletStateModel.data({
     @Default([]) final List<String> carouselCards,
     @Default([]) final List<TokenModel> tokens,
+    @Default([]) final List<SortItemOptions> sortItemOptions,
+    @Default(SortOrder.desc) SortOrder sortBy,
   }) = WalletStateModelData;
 
   factory WalletStateModel.fromJson(Map<String, dynamic> json) =>

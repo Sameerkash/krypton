@@ -23,6 +23,7 @@ mixin _$TokenModel {
   String get name => throw _privateConstructorUsedError;
   String get symbol => throw _privateConstructorUsedError;
   int get balance => throw _privateConstructorUsedError;
+  String get iconUrl => throw _privateConstructorUsedError;
   int get currentPrice => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +38,12 @@ abstract class $TokenModelCopyWith<$Res> {
           TokenModel value, $Res Function(TokenModel) then) =
       _$TokenModelCopyWithImpl<$Res, TokenModel>;
   @useResult
-  $Res call({String name, String symbol, int balance, int currentPrice});
+  $Res call(
+      {String name,
+      String symbol,
+      int balance,
+      String iconUrl,
+      int currentPrice});
 }
 
 /// @nodoc
@@ -56,6 +62,7 @@ class _$TokenModelCopyWithImpl<$Res, $Val extends TokenModel>
     Object? name = null,
     Object? symbol = null,
     Object? balance = null,
+    Object? iconUrl = null,
     Object? currentPrice = null,
   }) {
     return _then(_value.copyWith(
@@ -71,6 +78,10 @@ class _$TokenModelCopyWithImpl<$Res, $Val extends TokenModel>
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as int,
+      iconUrl: null == iconUrl
+          ? _value.iconUrl
+          : iconUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       currentPrice: null == currentPrice
           ? _value.currentPrice
           : currentPrice // ignore: cast_nullable_to_non_nullable
@@ -87,7 +98,12 @@ abstract class _$$_TokenModelCopyWith<$Res>
       __$$_TokenModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String symbol, int balance, int currentPrice});
+  $Res call(
+      {String name,
+      String symbol,
+      int balance,
+      String iconUrl,
+      int currentPrice});
 }
 
 /// @nodoc
@@ -104,6 +120,7 @@ class __$$_TokenModelCopyWithImpl<$Res>
     Object? name = null,
     Object? symbol = null,
     Object? balance = null,
+    Object? iconUrl = null,
     Object? currentPrice = null,
   }) {
     return _then(_$_TokenModel(
@@ -119,6 +136,10 @@ class __$$_TokenModelCopyWithImpl<$Res>
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as int,
+      iconUrl: null == iconUrl
+          ? _value.iconUrl
+          : iconUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       currentPrice: null == currentPrice
           ? _value.currentPrice
           : currentPrice // ignore: cast_nullable_to_non_nullable
@@ -134,6 +155,7 @@ class _$_TokenModel implements _TokenModel {
       {required this.name,
       required this.symbol,
       required this.balance,
+      required this.iconUrl,
       required this.currentPrice});
 
   factory _$_TokenModel.fromJson(Map<String, dynamic> json) =>
@@ -146,11 +168,13 @@ class _$_TokenModel implements _TokenModel {
   @override
   final int balance;
   @override
+  final String iconUrl;
+  @override
   final int currentPrice;
 
   @override
   String toString() {
-    return 'TokenModel(name: $name, symbol: $symbol, balance: $balance, currentPrice: $currentPrice)';
+    return 'TokenModel(name: $name, symbol: $symbol, balance: $balance, iconUrl: $iconUrl, currentPrice: $currentPrice)';
   }
 
   @override
@@ -161,6 +185,7 @@ class _$_TokenModel implements _TokenModel {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.symbol, symbol) || other.symbol == symbol) &&
             (identical(other.balance, balance) || other.balance == balance) &&
+            (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl) &&
             (identical(other.currentPrice, currentPrice) ||
                 other.currentPrice == currentPrice));
   }
@@ -168,7 +193,7 @@ class _$_TokenModel implements _TokenModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, symbol, balance, currentPrice);
+      Object.hash(runtimeType, name, symbol, balance, iconUrl, currentPrice);
 
   @JsonKey(ignore: true)
   @override
@@ -189,6 +214,7 @@ abstract class _TokenModel implements TokenModel {
       {required final String name,
       required final String symbol,
       required final int balance,
+      required final String iconUrl,
       required final int currentPrice}) = _$_TokenModel;
 
   factory _TokenModel.fromJson(Map<String, dynamic> json) =
@@ -201,9 +227,164 @@ abstract class _TokenModel implements TokenModel {
   @override
   int get balance;
   @override
+  String get iconUrl;
+  @override
   int get currentPrice;
   @override
   @JsonKey(ignore: true)
   _$$_TokenModelCopyWith<_$_TokenModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SortItemOptions _$SortItemOptionsFromJson(Map<String, dynamic> json) {
+  return _SortItemOptions.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SortItemOptions {
+  String get text => throw _privateConstructorUsedError;
+  SortOrder get sort => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SortItemOptionsCopyWith<SortItemOptions> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SortItemOptionsCopyWith<$Res> {
+  factory $SortItemOptionsCopyWith(
+          SortItemOptions value, $Res Function(SortItemOptions) then) =
+      _$SortItemOptionsCopyWithImpl<$Res, SortItemOptions>;
+  @useResult
+  $Res call({String text, SortOrder sort});
+}
+
+/// @nodoc
+class _$SortItemOptionsCopyWithImpl<$Res, $Val extends SortItemOptions>
+    implements $SortItemOptionsCopyWith<$Res> {
+  _$SortItemOptionsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+    Object? sort = null,
+  }) {
+    return _then(_value.copyWith(
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      sort: null == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as SortOrder,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_SortItemOptionsCopyWith<$Res>
+    implements $SortItemOptionsCopyWith<$Res> {
+  factory _$$_SortItemOptionsCopyWith(
+          _$_SortItemOptions value, $Res Function(_$_SortItemOptions) then) =
+      __$$_SortItemOptionsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String text, SortOrder sort});
+}
+
+/// @nodoc
+class __$$_SortItemOptionsCopyWithImpl<$Res>
+    extends _$SortItemOptionsCopyWithImpl<$Res, _$_SortItemOptions>
+    implements _$$_SortItemOptionsCopyWith<$Res> {
+  __$$_SortItemOptionsCopyWithImpl(
+      _$_SortItemOptions _value, $Res Function(_$_SortItemOptions) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+    Object? sort = null,
+  }) {
+    return _then(_$_SortItemOptions(
+      null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as SortOrder,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_SortItemOptions implements _SortItemOptions {
+  const _$_SortItemOptions(this.text, this.sort);
+
+  factory _$_SortItemOptions.fromJson(Map<String, dynamic> json) =>
+      _$$_SortItemOptionsFromJson(json);
+
+  @override
+  final String text;
+  @override
+  final SortOrder sort;
+
+  @override
+  String toString() {
+    return 'SortItemOptions(text: $text, sort: $sort)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SortItemOptions &&
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.sort, sort) || other.sort == sort));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, text, sort);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SortItemOptionsCopyWith<_$_SortItemOptions> get copyWith =>
+      __$$_SortItemOptionsCopyWithImpl<_$_SortItemOptions>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SortItemOptionsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _SortItemOptions implements SortItemOptions {
+  const factory _SortItemOptions(final String text, final SortOrder sort) =
+      _$_SortItemOptions;
+
+  factory _SortItemOptions.fromJson(Map<String, dynamic> json) =
+      _$_SortItemOptions.fromJson;
+
+  @override
+  String get text;
+  @override
+  SortOrder get sort;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SortItemOptionsCopyWith<_$_SortItemOptions> get copyWith =>
       throw _privateConstructorUsedError;
 }
