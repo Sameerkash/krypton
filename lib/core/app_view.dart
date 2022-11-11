@@ -64,8 +64,8 @@ class _AppViewState extends ConsumerState<AppView> {
       bottomNavigationBar: appState.maybeMap(
         orElse: () => Container(),
         loading: (_) => Container(
-          height: 50,
-          color: Colors.grey,
+          height: 60,
+          color: Colors.grey[800],
         ),
         data: (data) => BottomAppBar(
           elevation: 2,
