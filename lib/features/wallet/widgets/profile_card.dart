@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:krypton/features/wallet/widgets/transaction_button.dart';
 import 'package:krypton/utils/strings.dart';
 
@@ -17,14 +18,19 @@ class ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
         color: AppColors.secondary,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: Colors.white,
-          width: 0.5
-        )
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 8,
+            offset: const Offset(-1, 0),
+            color: Colors.white.withOpacity(0.3),
+          ),
+        ],
+        border: Border.all(color: Colors.white, width: 0.5),
       ),
       padding: const EdgeInsets.all(28),
       child: Column(
@@ -51,8 +57,8 @@ class ProfileCard extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(
-            height: 32,
+          SizedBox(
+            height: size.height * 0.035,
           ),
           Row(
             children: const [
@@ -110,9 +116,7 @@ class ProfileDetailsChip extends StatelessWidget {
           const SizedBox(
             width: 8,
           ),
-          const Icon(
-            Icons.arrow_circle_down_sharp,
-          )
+          SvgPicture.asset(ImagePaths.arrowDown)
         ],
       ),
     );

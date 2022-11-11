@@ -17,23 +17,25 @@ class AnimatedCardSwiper extends StatefulWidget {
 class _AnimatedCardSwiperState extends State<AnimatedCardSwiper> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          height: 150,
+          height: size.height * .2,
         ),
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 80,
+            height: size.height * .1,
             color: Colors.black,
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 20),
           child: SizedBox(
-            height: 150,
+            height: size.height * .15,
             child: LayoutBuilder(
               builder: (context, constrains) {
                 final height = constrains.maxHeight;
@@ -87,7 +89,7 @@ class AnimatedStackCard extends ConsumerStatefulWidget {
 class _AnimatedStackCardState extends ConsumerState<AnimatedStackCard>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
-  late Animation<Offset> animation;
+  late Animation<double> animation;
 
   GlobalKey key = GlobalKey();
 
@@ -95,26 +97,41 @@ class _AnimatedStackCardState extends ConsumerState<AnimatedStackCard>
   void initState() {
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 2),
     );
 
+    animation = Tween<double>(begin: 1, end: 0).animate(animationController);
     super.initState();
   }
 
   @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onVerticalDragCancel: () {},
-      onVerticalDragEnd: (details) {
-        ref
-            .read(walletViewProvider.notifier)
-            .onRemoveCarouselCard(widget.imageUrl);
-      },
-      onVerticalDragStart: (details) {},
-      child: Image.network(
-        widget.imageUrl,
-        width: widget.width - (10 * widget.index + 1),
-        height: widget.height,
+    return FadeTransition(
+      opacity: animation,
+      child: GestureDetector(
+        onVerticalDragCancel: () {
+          animationController.reverse();
+        },
+        onVerticalDragEnd: (details) {
+          animationController.stop();
+          ref
+              .read(walletViewProvider.notifier)
+              .onRemoveCarouselCard(widget.imageUrl);
+        },
+        onVerticalDragStart: (details) {
+          animationController.forward();
+        },
+        child: Image.network(
+          widget.imageUrl,
+          width: widget.width - (10 * widget.index + 1),
+          height: widget.height,
+        ),
       ),
     );
   }

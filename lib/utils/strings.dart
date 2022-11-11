@@ -8,4 +8,5 @@ class ImagePaths {
   static const String send = 'assets/send.svg';
   static const String receive = 'assets/receive.svg';
   static const String scan = 'assets/scan.svg';
+  static const String arrowDown = 'assets/arrow_down.svg';
 }
